@@ -121,10 +121,12 @@
           <fieldset class="fieldset flex items-center flex-col md:items-start">
             <input
               type="text"
-              class="input outline-none"
+              class="input outline-none focus-within:outline-none focus-within:ring-0"
               placeholder="Enter your name"
             />
-            <label class="input validator">
+            <label
+              class="input validator focus-within:outline-none focus-within:ring-0"
+            >
               <svg
                 class="h-[1em] opacity-50"
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +164,7 @@
               <br />At least one number <br />At least one lowercase letter
               <br />At least one uppercase letter
             </p>
-            <button class="btn btn-primary max-w-48">Get Started</button>
+            <button class="btn btn-primary max-w-48 my-5">Get Started</button>
           </fieldset>
         </div>
         <div class="right flex-1">
@@ -178,16 +180,156 @@
         <h1 class="font-bold text-4xl">
           <span class="text-[#00BCFF]">Let's</span> Learn Vocabularies
         </h1>
+
+        <!-- lesson-container -->
         <div
           id="lesson-container"
           class="flex flex-wrap gap-2 justify-center mt-10"
         ></div>
+
+        <!-- search container  -->
+        <div class="join mt-10">
+          <div>
+            <label
+              class="input join-item focus-within:outline-none focus-within:ring-0"
+            >
+              <input
+                id="search-input"
+                class="outline-none focus:outline-none"
+                type="text"
+                placeholder="Search Vocabularies"
+                required
+              />
+            </label>
+          </div>
+          <button id="search" class="btn btn-primary join-item">Search</button>
+        </div>
+
+        <!-- loading-spinner -->
+        <div id="spinner" class="pt-10 hidden">
+          <span class="loading loading-spinner text-primary"></span>
+        </div>
+
+        <!-- word-container -->
         <div
           id="word-container"
-          class="bg-[#F8F8F8] grid grid-cols-1 md:grid-cols-3 p-10 mt-10 rounded-sm gap-10"
-        ></div>
+          class="bg-[#F8F8F8] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 mt-10 rounded-sm gap-10"
+        >
+          <div
+            class="text-center col-span-full rounded-xl py-10 space-y-6 font-bangla"
+          >
+            <p class="text-xl font-medium text-gray-400">
+              আপনি এখনো কোন Lesson Select করেন নি
+            </p>
+            <h2 class="font-bold text-xl md:text-4xl">
+              একটি Lesson Select করুন।
+            </h2>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- modal goes here  -->
+    <dialog id="word-modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="details-container" class="space-y-5"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- FAQ -->
+    <section class="w-11/12 mx-auto my-10">
+      <div class="text-center">
+        <h1 class="font-bold text-xl md:text-4xl">
+          <span class="text-[#00BCFF]">Frequently</span> Asked Questions
+        </h1>
+      </div>
+
+      <div class="question mt-10 space-y-2">
+        <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+          <input type="radio" name="my-accordion-3" checked="checked" />
+          <div class="collapse-title font-semibold">
+            How can I start learning English on this website?
+          </div>
+          <div class="collapse-content text-sm">
+            You can start by exploring our beginner lessons, interactive
+            exercises, and quizzes. We also offer structured courses to guide
+            you step by step.
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            Is this website free to use?
+          </div>
+          <div class="collapse-content text-sm">
+            Yes, this website free to use.
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+          <input type="radio" name="my-accordion-3" checked="checked" />
+          <div class="collapse-title font-semibold">
+            How do I create an account?
+          </div>
+          <div class="collapse-content text-sm">
+            Click the "Sign Up" button in the top right corner and follow the
+            registration process.
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            I forgot my password. What should I do?
+          </div>
+          <div class="collapse-content text-sm">
+            Click on "Forgot Password" on the login page and follow the
+            instructions sent to your email.
+          </div>
+        </div>
+        <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            How do I update my profile information?
+          </div>
+          <div class="collapse-content text-sm">
+            Go to "My Account" settings and select "Edit Profile" to make
+            changes.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section  -->
+    <section
+      class="bg-[#EDF6FF]"
+    >
+      <div class="p-10 flex flex-col md:flex-row justify-between md:items-center" >
+        <div class="left">
+          <a href="" class="flex items-center gap-1">
+            <span class="font-bold text-xl">English</span>
+            <img src="./assets/logo.png" alt="" />
+            <span class="font-bangla font-bold text-xl">জানালা</span>
+          </a>
+          <p class="text-xl font-bangla text-gray-600">ইংরেজি শিখুন সহজে</p>
+          <p class="text-gray-400 text-sm">
+            Providing ED-Tech Applications since 2025
+          </p>
+        </div>
+        <div class="right">
+          <h1 class="text-sm text-gray-400">Follow us</h1>
+          <div class="flex gap-1">
+            <img src="./assets/youtube-thumb.png" alt="" />
+            <img src="./assets/instagram-thumb.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="./scipt.js"></script>
   </body>
 </html>
